@@ -2,6 +2,7 @@
 
 import { Tab, Tabs } from '@nextui-org/react'
 import Markdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 
 const markdown = `
@@ -38,14 +39,18 @@ Can you come up with an algorithm that is less than \`O(n^2)\` time complexity?
 
 export default function ExerciseSection(): JSX.Element {
     return (
-        <section className='flex-1 overflow-y-auto'>
+        <section className='flex-1 overflow-y-auto bg-[#0d1117]'>
             <Tabs
                 classNames={{
                     base: 'sticky top-0 px-4 pt-4',
+                    panel: 'p-0 w-full h-full',
                 }}
             >
                 <Tab key='exercise' title="Exercise">
-                    <Markdown className="px-4">
+                    <Markdown
+                        remarkPlugins={[remarkGfm]}
+                        className="markdown-body p-0 py-8 px-4"
+                    >
                         {markdown}
                     </Markdown>
                 </Tab>
