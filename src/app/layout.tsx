@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Providers>
-        <body className={`${inter.className} dark flex flex-col max-h-[100vh] h-[100vh]`}>
+        <body className={`${inter.className} dark text-foreground bg-background flex flex-col max-h-[100vh] h-[100vh]`}>
           {children}
         </body>
       </Providers>
