@@ -1,5 +1,6 @@
 'use client'
 
+import { Tab, Tabs } from '@nextui-org/react'
 import Markdown from 'react-markdown'
 
 
@@ -37,14 +38,19 @@ Can you come up with an algorithm that is less than \`O(n^2)\` time complexity?
 
 export default function ExerciseSection(): JSX.Element {
     return (
-        <section className='flex-1 overflow-y-scroll'>
-            <ul>
-                <li>Hello</li>
-                <li>Hello</li>
-            </ul>
-            <Markdown>
-                {markdown}
-            </Markdown>
+        <section className='flex-1 overflow-y-auto'>
+            <Tabs
+                classNames={{
+                    base: 'sticky top-0 px-4 pt-4',
+                }}
+            >
+                <Tab key='exercise' title="Exercise">
+                    <Markdown className="px-4">
+                        {markdown}
+                    </Markdown>
+                </Tab>
+                <Tab key='solution' title="Solution" />
+            </Tabs>
         </section>
     )
 }
