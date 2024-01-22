@@ -45,7 +45,7 @@ export default function OutputCode(): JSX.Element {
                     className="min-w-36"
                 >Results</Button>
             </ButtonGroup>
-            <div className={`bg-slate-900 p-8 w-11/12 mt-2 ${!state.activeTab ? "hidden" : "block"}`}>
+            <div className={`bg-slate-900 p-8 w-11/12 mt-2 rounded-lg ${!state.activeTab ? "hidden" : "block"}`}>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut odio consectetur perspiciatis beatae alias quam impedit laboriosam minima atque libero, natus ullam, maxime quos est quod cum molestiae rem in?
                 </p>
