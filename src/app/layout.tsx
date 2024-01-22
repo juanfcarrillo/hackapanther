@@ -19,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <link href="https://esm.sh/github-markdown-css@5/github-markdown.css" rel="stylesheet"/>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet"/>
       <Providers>
         <body className={`${inter.className} dark text-foreground bg-background flex flex-col max-h-[100vh] h-[100vh]`}>
           {children}
