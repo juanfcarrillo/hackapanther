@@ -8,16 +8,18 @@ export interface TestResult {
 
 export interface TestError {
     generatedMessage: boolean;
-    code:             string;
-    actual:           string;
-    expected:         string;
-    operator:         string;
+    code: string;
+    actual: string;
+    expected: string;
+    operator: string;
 }
 
 type EndpointResult = TestError | TestResult;
 
 async function uploadCode(code: string): Promise<EndpointResult[]> {
     const endpoint = process.env.NEXT_PUBLIC_API_URL || "";
+
+    console.log({ endpoint })
 
     const response = await axios.post<EndpointResult[]>(endpoint, {
         code
@@ -34,7 +36,7 @@ export default function useUploadCode() {
         data,
         error,
         status
-    } = useMutation({ 
+    } = useMutation({
         mutationKey: ['todos'],
         mutationFn: uploadCode
     })
