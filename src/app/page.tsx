@@ -1,5 +1,5 @@
-import CodeSection from "./components/CodeSection/CodeSection";
-import ExerciseSection from "./components/ExerciseSection";
+import CodeSection from "../components/CodeSection/CodeSection";
+import ExerciseSection from "../components/ExerciseSection";
 
 export default function Home() {
   return (

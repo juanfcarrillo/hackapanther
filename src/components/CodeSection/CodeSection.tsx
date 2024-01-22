@@ -1,8 +1,9 @@
 'use client'
 
 import { Editor } from "@monaco-editor/react";
-import oneDarkProTheme from "../../../assets/oneDarkPro.json";
+import oneDarkProTheme from "../../assets/oneDarkPro.json";
 import OutputCode from "./OutputCode";
+import { useState } from "react";
 
 const defaultValue = `
 function twoSum(nums, target) {
@@ -11,6 +12,9 @@ function twoSum(nums, target) {
 `
 
 export default function CodeSection(): JSX.Element {
+
+    const [editotValue, setEditorValue] = useState(defaultValue)
+
     return (
         <section className="flex-1 relative overflow-hidden">
             <Editor
@@ -21,9 +25,12 @@ export default function CodeSection(): JSX.Element {
                     monaco.editor.defineTheme('one-dark', oneDarkProTheme as any)
                     monaco.editor.setTheme('one-dark')
                 }}
+                onChange={(value, event) => {
+                    setEditorValue(value || "")
+                }}
                 theme="one-dark"
             />
-            <OutputCode />
+            <OutputCode code={editotValue} />
         </section>
     )
 }
