@@ -15,6 +15,20 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      keyframes: {
+        showupkeyframes: {
+          "0%": { opacity: "0", transform: "translateY(100%)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        showdownkeyframes: {
+          "0%": { opacity: "0", transform: "translateY(-100%)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        }
+      },
+      animation: {
+        showup: "showupkeyframes 0.5s forwards",
+        showdown: "showdownkeyframes 0.5s forwards",
+      }
     },
   },
   darkMode: "class",

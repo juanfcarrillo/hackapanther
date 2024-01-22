@@ -1,13 +1,14 @@
 'use client'
 
 import { Editor } from "@monaco-editor/react";
-import oneDarkProTheme from "../../assets/oneDarkPro.json";
+import oneDarkProTheme from "../../../assets/oneDarkPro.json";
+import OutputCode from "./OutputCode";
 
 export default function CodeSection(): JSX.Element {
     return (
-        <section className="flex-1">
+        <section className="flex-1 relative overflow-hidden">
             <Editor
-                // height="100%"
+                height="100%"
                 defaultLanguage="javascript" 
                 defaultValue="// some comment"
                 onMount={(editor, monaco) => {            
@@ -16,6 +17,7 @@ export default function CodeSection(): JSX.Element {
                 }}
                 theme="one-dark"
             />
+            <OutputCode />
         </section>
     )
 }
