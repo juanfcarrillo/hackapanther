@@ -1,8 +1,9 @@
-import { Button, ButtonGroup, Spinner } from "@nextui-org/react";
+import { Button, ButtonGroup, Chip, Spinner } from "@nextui-org/react";
 import { useReducer } from "react";
 import SendIcon from "../SendIcon";
 import useUploadCode, { TestResult } from "@/hooks/useUploadCode";
 import ResultElement from "./ResultElement";
+import ErrorCode from "./ErrorCode";
 
 interface TabsState {
     activeTab: 'tests' | 'send' | undefined
@@ -36,7 +37,8 @@ export default function OutputCode({ code }: OutputCodeProps): JSX.Element {
     const {
         isLoading,
         uploadCode,
-        response
+        response,
+        error
     } = useUploadCode()
 
     console.log(response)
@@ -52,6 +54,8 @@ export default function OutputCode({ code }: OutputCodeProps): JSX.Element {
         uploadCode(code)
         setActiveTab('send')
     }
+
+    console.log({error})
 
     return (
         <section className={`t-2 w-11/12 px-2 absolute bottom-4 left-4 ${state.activeTab ? "animate-showup" : "animate-showdown"}`}>
@@ -70,6 +74,9 @@ export default function OutputCode({ code }: OutputCodeProps): JSX.Element {
                 {
                     isLoading ? (
                         <Spinner color="success"/>
+                    ) :
+                    error ? (
+                        <ErrorCode />
                     ) :
                     response?.map((result: any, index) => (
                         <ResultElement key={index} number={index} status={result.state} testDescription={result.title} />

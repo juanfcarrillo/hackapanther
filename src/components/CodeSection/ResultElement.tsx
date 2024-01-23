@@ -8,7 +8,11 @@ interface ResultElementProps {
 
 export default function ResultElement({number, status, testDescription}: ResultElementProps): JSX.Element {
     return (
-        <Card className="w-11/12 p-5 min-h-28" >
+        <Card 
+        classNames={{
+            body: "w-full"
+        }}
+        className="w-11/12 p-5 min-h-28" >
             <CardHeader className="flex justify-between">
                 <h4>
                     {number}
