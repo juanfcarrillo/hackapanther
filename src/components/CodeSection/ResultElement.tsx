@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardBody, CardFooter, Avatar, Button, Chip } from "@nextui-org/react";
+import { Card, CardBody, CardHeader, Chip } from "@nextui-org/react";
 
 interface ResultElementProps {
     number: number
