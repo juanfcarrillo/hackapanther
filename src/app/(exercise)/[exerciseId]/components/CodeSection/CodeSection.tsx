@@ -1,7 +1,7 @@
 'use client'
 
 import { Editor } from "@monaco-editor/react";
-import oneDarkProTheme from "../../assets/oneDarkPro.json";
+import oneDarkProTheme from "../../../../../assets/oneDarkPro.json";
 import OutputCode from "./OutputCode";
 import { useState } from "react";
 
